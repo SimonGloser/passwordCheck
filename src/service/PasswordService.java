@@ -4,9 +4,7 @@ public class PasswordService {
 
     private String password;
 
-    public PasswordService(String password) {
-        this.password = password;
-    }
+
 
     public String getPassword() {
         return password;
@@ -16,13 +14,27 @@ public class PasswordService {
         this.password = password;
     }
 
+    public boolean isPasswordValid(){
+        if (this.checkLength() == false){
+            return false;
+        }
+
+        if (this.passwordHasInt() == false ){
+            return false;
+        }
+        if (this.passwordHasUpperCase() == false){
+            return false;
+        }
+        return true;
+    }
+
     private boolean checkLength(){
         if (this.password.length() <= 8){
             return false;
         }
         return true;
     }
-    private boolean checkForInt(){
+    private boolean passwordHasInt(){
         char[] letters = this.password.toCharArray();
 
         for( char letter : letters){
@@ -37,7 +49,7 @@ public class PasswordService {
         return false;
     }
 
-    public boolean checkForUpperCase(){
+    private boolean passwordHasUpperCase(){
         char[] letters = this.password.toCharArray();
 
         for( char letter : letters){
