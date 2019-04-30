@@ -22,9 +22,18 @@ public class PasswordService {
         }
         return true;
     }
-    public boolean checkForInt(){
+    private boolean checkForInt(){
         char[] letters = this.password.toCharArray();
 
-        return true;
+        for( char letter : letters){
+            for (int i = 48; i < 58; i++){
+                System.out.println(letter + " = " + i);
+                if (letter == (char)i ){
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }
