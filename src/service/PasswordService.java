@@ -27,13 +27,26 @@ public class PasswordService {
 
         for( char letter : letters){
             for (int i = 48; i < 58; i++){
-                System.out.println(letter + " = " + i);
+
                 if (letter == (char)i ){
                     return true;
                 }
             }
         }
 
+        return false;
+    }
+
+    public boolean checkForUpperCase(){
+        char[] letters = this.password.toCharArray();
+
+        for( char letter : letters){
+            for (int i = 65; i < 91; i++){
+                if (letter == (char)i){
+                    return true;
+                }
+            }
+        }
         return false;
     }
 }
